@@ -15,16 +15,25 @@ public class ResponseVo<T> {
     private String msg;
     private T data;//泛型，因为显示的data数据结构可能不是固定的
 
-    public ResponseVo(Integer status, String msg) {
+    private ResponseVo(Integer status, String msg) {
         this.status = status;
         this.msg = msg;
     }
 
-    //"成功"的静态方法
-    public static <T> ResponseVo<T> success(String msg){
-        return new ResponseVo<>(ResponseEnum.SUCCESS.getCode(),msg);//这时不仅会显示status，msg还会显示data=null。如果不想显示data=null，就要加注释@JsonInclude
-
+    private ResponseVo(Integer status, T data) {
+        this.status = status;
+        this.data = data;
     }
+
+    //"成功"的静态方法
+    public static <T> ResponseVo<T> successByMsg(String msg){
+        return new ResponseVo<>(ResponseEnum.SUCCESS.getCode(),msg);//这时不仅会显示status，msg还会显示data=null。如果不想显示data=null，就要加注释@JsonInclude
+    }
+    //如果上面这个函数和该函数名字一样，那么，上面这个函数永远不会被调用。所以需要把上面这个函数的名字改了
+    public static <T> ResponseVo<T> success(T data){
+        return new ResponseVo<>(ResponseEnum.SUCCESS.getCode(),data);//这时不仅会显示status，msg还会显示data=null。如果不想显示data=null，就要加注释@JsonInclude
+    }
+
     public static <T> ResponseVo<T> success(){
         return new ResponseVo<>(ResponseEnum.SUCCESS.getCode(),ResponseEnum.SUCCESS.getDesc());
     }

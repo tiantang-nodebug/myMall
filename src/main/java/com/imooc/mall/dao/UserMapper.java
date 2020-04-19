@@ -20,4 +20,6 @@ public interface UserMapper {
     int countByUsername(String username);//只需要返回count 就知道表里有没有这个用户名的记录
 
     int  countByEmail(String email);//只需要返回count 就知道表里有没有这个用户名的记录
+
+    User selectByUsername(String username);
 }

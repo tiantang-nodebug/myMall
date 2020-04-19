@@ -4,6 +4,9 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: password
+  redis:
+    host: 127.0.0.1
+    port: 6379
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
@@ -13,3 +16,8 @@ mybatis:
 logging:
   pattern:
     console: "[%thread] %-5level %logger{36} - %msg%n"
+server:
+  servlet:
+    session:
+      timeout: 120
+#  port: 8080
