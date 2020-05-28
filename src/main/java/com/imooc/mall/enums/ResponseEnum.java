@@ -15,6 +15,12 @@ public enum ResponseEnum {
     PRODUCT_OFFSALE_OR_DELETE(12,"商品下架或删除"),
     PRODUCT_NOT_EXIST(13,"商品不存在"),
     PRODUCT_STOCK_ERROR(14,"库存不足"),
+    PRODUCT_NOT_EXIST_IN_CART(15,"购物车商品不存在"),
+    DELETE_SHIPPING_FAIL(16,"删除收货地址失败"),
+    SHIPPING_NOT_EXIST(17,"收货地址不存在"),
+    CART_SELECTED_IS_EMPTY(18,"购物车里没有选中的商品，请选择商品后下单"),
+    ORDER_NOT_EXIST(19,"该订单不存在"), //不能直接告诉***没有该订单，涉及数据敏感性问题
+    ORDER_STATUS_ERROR(20,"订单状态有误"),
         ;
     Integer code;
     String desc;

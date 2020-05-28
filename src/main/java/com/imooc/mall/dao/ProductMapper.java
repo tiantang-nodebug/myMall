@@ -21,4 +21,7 @@ public interface ProductMapper {
     int updateByPrimaryKey(Product record);
 
     List<Product> selectByCategoryIdSet(@Param("categoryIdSet") Set<Integer> categoryIdSet);
+
+    List<Product> selectByProductIdSet(@Param("productIdSet") Set<Integer> productIdSet);
+    //--     where status = 1 该条件删除同时将下面的查询条件用where包起来,同时将之前写的and去掉
 }

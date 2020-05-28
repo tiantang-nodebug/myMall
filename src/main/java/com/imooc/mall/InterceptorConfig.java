@@ -10,6 +10,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     //如果不需要拦截的接口比较多，可以写到配置文件里
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new UserLoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/error","/user/login","/user/register","/categories","/products","/products/*","/carts");//"/products/{productId}"或"/products/*"都可以
+        registry.addInterceptor(new UserLoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/error","/user/login","/user/register","/categories","/products","/products/*");//"/products/{productId}"或"/products/*"都可以.,"/carts"去掉，一定要先登录
     }
 }
+
